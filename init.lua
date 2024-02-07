@@ -150,21 +150,7 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Theme inspired by Atom
-    "catppuccin/nvim",
-    priority = 1000,
-    opts = {
-      options = {
-        flavour = 'mocha',
-        transparent_background = true,
-      },
-    },
-    config = function()
-      vim.cmd.colorscheme 'catppuccin'
-    end,
-  },
-
+  
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -233,6 +219,16 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
+    config = function()
+      local configs = require("nvim-treesitter.configs")
+      configs.setup({
+        prefer_git = false,
+        compilers = { "gcc" },
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -247,7 +243,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -290,6 +286,10 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.autoindent = true
+vim.o.smartindent = true
 
 -- [[ Basic Keymaps ]]
 
