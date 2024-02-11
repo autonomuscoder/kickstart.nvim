@@ -346,7 +346,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-vim.keymap.set("n", "<leader>ex", ':NvimTreeFindFileToggle<CR>', { desc = 'Nvim tree toggle'})
+vim.keymap.set("n", "<leader>e", ':NvimTreeFindFileToggle<CR>', { desc = 'Nvim tree toggle'})
 --splits
 vim.keymap.set("n", "ss", ':split<Return><C-w>w', { silent = true })
 vim.keymap.set("n", "sv", ':vsplit<Return><C-w>w', { silent = true })
