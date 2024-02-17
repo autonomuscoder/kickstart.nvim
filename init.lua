@@ -110,7 +110,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',          opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -150,7 +150,7 @@ require('lazy').setup({
     },
   },
 
-  
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -165,19 +165,19 @@ require('lazy').setup({
     },
   },
 
-{
-  "nvim-tree/nvim-tree.lua",
-  version = "*",
-  lazy = false,
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
   },
-  config = function()
-    require("nvim-tree").setup {}
-  end,
-},
 
-  {'christoomey/vim-tmux-navigator'},
+  { 'christoomey/vim-tmux-navigator' },
 
   {
     -- Add indentation guides even on blank lines
@@ -189,7 +189,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -210,6 +210,14 @@ require('lazy').setup({
         end,
       },
     },
+  },
+
+  -- see hex color codes as colors
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require("colorizer").setup()
+    end
   },
 
   {
@@ -254,7 +262,7 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -346,7 +354,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-vim.keymap.set("n", "<leader>e", ':NvimTreeFindFileToggle<CR>', { desc = 'Nvim tree toggle'})
+vim.keymap.set("n", "<leader>ex", ':NvimTreeFindFileToggle<CR>', { desc = 'Nvim tree toggle' })
 --splits
 vim.keymap.set("n", "ss", ':split<Return><C-w>w', { silent = true })
 vim.keymap.set("n", "sv", ':vsplit<Return><C-w>w', { silent = true })
