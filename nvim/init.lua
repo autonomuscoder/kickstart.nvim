@@ -107,6 +107,15 @@ require('lazy').setup({
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
+    config = function()
+      local cmp = require("cmp")
+      cmp.setup({
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        }
+      })
+    end
   },
 
   -- Useful plugin to show you pending keybinds.
@@ -158,7 +167,6 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'catppuccin',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },
@@ -354,10 +362,14 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-vim.keymap.set("n", "<leader>ex", ':NvimTreeFindFileToggle<CR>', { desc = 'Nvim tree toggle' })
+vim.keymap.set("n", "<leader>fe", ':NvimTreeFindFileToggle<CR>', { desc = 'Nvim tree toggle' })
 --splits
 vim.keymap.set("n", "ss", ':split<Return><C-w>w', { silent = true })
 vim.keymap.set("n", "sv", ':vsplit<Return><C-w>w', { silent = true })
+-- tabs
+vim.keymap.set("n", "nt", ":tabedit<Return>", { silent = true })
+vim.keymap.set("n", "tn", ":tabnext<Return>", { silent = true })
+vim.keymap.set("n", "tp", ":tabprev<Return>", { silent = true })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
